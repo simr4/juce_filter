@@ -17,7 +17,7 @@
 class FilterAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
-    FilterAudioProcessorEditor (FilterAudioProcessor&);
+    FilterAudioProcessorEditor (FilterAudioProcessor&, juce::AudioProcessorValueTreeState& vts);
     ~FilterAudioProcessorEditor() override;
 
     //==============================================================================
@@ -28,6 +28,10 @@ private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     FilterAudioProcessor& audioProcessor;
+
+	juce::Slider cutoffFrequencySlider;
+	std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> cutoffFrequencyAttachment;
+	juce::Label cutoffFrequencyLabel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FilterAudioProcessorEditor)
 };
