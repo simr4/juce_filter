@@ -16,8 +16,7 @@ private:
 
 	float samplingRate;
 	float cutoffFrequency;
-	float previousSample = 0.f; // Previous sample
-	float alpha = 0.f; // Smoothing factor
+	float previousSample = 0.f;
 
 	std::vector<float> dnBuffer;
 };
